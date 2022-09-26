@@ -1,8 +1,8 @@
 {
-  "name": "graph-ecommerce",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "graph-base",
+  "version": "1.0.0",
+  "description": "This is a base project for base to graph services",
+  "author": "Miguel Angel Morales",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
