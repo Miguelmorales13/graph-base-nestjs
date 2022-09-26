@@ -47,6 +47,8 @@ class EnvValidations {
 
   @IsString({ message: "Secreto token is required for deploy" })
   FILE_DEST: string;
+  @IsString({ message: "Secreto token is required for deploy" })
+  SEQUELIZE_SCHEMA: string;
 
 }
 

@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { sequelizeMysqlProvider } from "./providers/sequelize-mysql";
+import { sequelizeMysqlProvider } from "./providers/sequelize-postgresql";
 
 @Module({
   providers: [...sequelizeMysqlProvider],

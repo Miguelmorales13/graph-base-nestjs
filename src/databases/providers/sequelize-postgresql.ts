@@ -12,7 +12,8 @@ export const sequelizeMysqlProvider = [
         port: GetEnv("SEQUELIZE_PORT"),
         username: GetEnv("SEQUELIZE_USERNAME"),
         password: GetEnv("SEQUELIZE_PASSWORD"),
-        database: GetEnv("SEQUELIZE_DATABASE")
+        database: GetEnv("SEQUELIZE_DATABASE"),
+        schema: GetEnv("SEQUELIZE_SCHEMA")
       });
       sequelize.addModels([User]);
       await sequelize.sync({ logging: true, alter: true });
