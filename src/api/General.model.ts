@@ -1,12 +1,8 @@
-import { AutoIncrement, Column, CreatedAt, DeletedAt, Model, PrimaryKey, UpdatedAt } from "sequelize-typescript";
+import { Column, CreatedAt, DeletedAt, Model, UpdatedAt } from "sequelize-typescript";
 import { Field } from "@nestjs/graphql";
 
 export class GeneralModel<T> extends Model<T> {
-  @PrimaryKey
-  @AutoIncrement
-  @Column
-  @Field()
-  id?: number;
+
 
   @Column({ field: "created_at", allowNull: false })
   @CreatedAt

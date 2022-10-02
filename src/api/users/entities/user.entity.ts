@@ -1,5 +1,5 @@
-import { Field, ObjectType } from "@nestjs/graphql";
-import { BeforeCreate, Column, DataType, Is, Table } from "sequelize-typescript";
+import { Field, Int, ObjectType } from "@nestjs/graphql";
+import { AutoIncrement, BeforeCreate, Column, DataType, Is, PrimaryKey, Table } from "sequelize-typescript";
 import { GeneralModel } from "../../General.model";
 
 import * as bcrypt from "bcrypt";
@@ -11,6 +11,12 @@ import * as bcrypt from "bcrypt";
   underscored: true
 })
 export class User extends GeneralModel<User> {
+  @PrimaryKey
+  @AutoIncrement
+  @Column
+  @Field(type => Int)
+  id?: number;
+
   @Field()
   @Column({ type: DataType.STRING(100), allowNull: false })
   name?: string;

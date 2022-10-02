@@ -14,7 +14,7 @@ export class UsersResolver {
   ) {
   }
 
-  @Mutation(() => User)
+  @Mutation(returns => User)
   createUser(@Args("createUserInput") createUserInput: CreateUserInput) {
     return this.usersService.create(createUserInput);
   }
@@ -34,7 +34,7 @@ export class UsersResolver {
     return this.usersService.update(updateUserInput.id, updateUserInput);
   }
 
-  @Mutation(() => User)
+  @Mutation(() => Int)
   removeUser(@Args("id", { type: () => Int }) id: number) {
     return this.usersService.remove(id);
   }

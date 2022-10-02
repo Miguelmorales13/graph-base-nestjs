@@ -50,6 +50,9 @@ class EnvValidations {
   @IsString({ message: "Secreto token is required for deploy" })
   SEQUELIZE_SCHEMA: string;
 
+  @IsString({ message: "Secreto token is required for deploy" })
+  URL_EMAILS: string;
+
 }
 
 export const validate = (config: Record<string, unknown>) => {
