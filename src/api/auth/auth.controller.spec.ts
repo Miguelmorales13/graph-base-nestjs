@@ -5,7 +5,7 @@ import { PassportModule } from "@nestjs/passport";
 import { AuthService } from "./auth.service";
 import { getModelToken } from "@nestjs/sequelize";
 import { User } from "../users/entities/user.entity";
-import { JwtStrategy } from "./jwt.strategy";
+import { JwtStrategy } from "./strategies/jwt.strategy";
 
 describe("AuthController", () => {
   let resolver: AuthResolver;

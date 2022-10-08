@@ -52,6 +52,18 @@ class EnvValidations {
 
   @IsString({ message: "Secreto token is required for deploy" })
   URL_EMAILS: string;
+  @IsString({ message: "Secreto token is required for deploy" })
+  GOOGLE_ID: string;
+  @IsString({ message: "Secreto token is required for deploy" })
+  GOOGLE_SECRET: string;
+  @IsString({ message: "Secreto token is required for deploy" })
+  GOOGLE_CALLBACK: string;
+  @IsString({ message: "Secreto token is required for deploy" })
+  FACEBOOK_ID: string;
+  @IsString({ message: "Secreto token is required for deploy" })
+  FACEBOOK_SECRET: string;
+  @IsString({ message: "Secreto token is required for deploy" })
+  FACEBOOK_CALLBACK: string;
 
 }
 

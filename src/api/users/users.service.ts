@@ -10,7 +10,6 @@ import { TemplateEnum } from "../../enums/template.enum";
 
 @Injectable()
 export class UsersService extends SequelizeCrudService<User, CreateUserInput, UpdateUserInput> {
-  attributesUser: Array<keyof User> = ["id", "lastName", "name", "secondLastName", "email", "active", "createdAt", "updatedAt"];
 
   constructor(
     @Inject(getModelToken(User)) private readonly userProvider: typeof User,
@@ -20,11 +19,11 @@ export class UsersService extends SequelizeCrudService<User, CreateUserInput, Up
   }
 
   async findAll(): Promise<User[]> {
-    return super.findAll({ attributes: this.attributesUser });
+    return this.userProvider.scope("withOutPass").findAll();
   }
 
   async findOne(id: number): Promise<User> {
-    return super.findOne(id, { attributes: this.attributesUser });
+    return this.userProvider.scope("withOutPass").findOne({ where: { id } });
   }
 
 
@@ -36,7 +35,7 @@ export class UsersService extends SequelizeCrudService<User, CreateUserInput, Up
       userName: itemCreate.name,
       link: ""
     });
-    const user = await this.userProvider.create({ ...itemCreate, password });
+    const user = await this.userProvider.scope("withOutPass").create({ ...itemCreate, password });
     console.log(user);
     return this.findOne(user.id);
   }

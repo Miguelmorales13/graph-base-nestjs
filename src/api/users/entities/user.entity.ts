@@ -1,5 +1,5 @@
 import { Field, Int, ObjectType } from "@nestjs/graphql";
-import { AutoIncrement, BeforeCreate, Column, DataType, Is, PrimaryKey, Table } from "sequelize-typescript";
+import { AutoIncrement, BeforeCreate, Column, DataType, Is, PrimaryKey, Scopes, Table } from "sequelize-typescript";
 import { GeneralModel } from "../../General.model";
 
 import * as bcrypt from "bcrypt";
@@ -9,6 +9,11 @@ import * as bcrypt from "bcrypt";
   paranoid: true,
   timestamps: true,
   underscored: true
+})
+@Scopes({
+  withOutPass: () => ({
+    attributes: ["id", "lastName", "name", "secondLastName", "email", "active", "createdAt", "updatedAt"]
+  })
 })
 export class User extends GeneralModel<User> {
   @PrimaryKey
